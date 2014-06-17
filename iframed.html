@@ -1,0 +1,20 @@
+<style>
+iframe {
+    resize:both;
+    overflow:auto;
+    border: 0;
+}
+body {
+    background-color: white;
+}
+</style>
+<script>
+window.outer = true;
+</script>
+<main>
+    <h1>that is sized in a borderless iframe</h1>
+    <iframe src="./index.html"></iframe>
+</main>
+<script>
+console.log('outside looking in', window.inside);
+</script>

@@ -1,0 +1,52 @@
+.sized {
+    display: none;
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+    .sized.tiny {
+        background-color: yellow;
+        display: block;
+    }
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width: 480px) {
+    .sized.small {
+        background-color: orange;
+        display: block;
+    }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) and (max-width:768px) {
+    .sized.medium {
+        background-color: red;
+        display: block;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width: 992px) {
+    .sized.large {
+        display: block;
+        background-color: teal
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)  and (max-width: 1200px) {
+    .sized.huge {
+        display: block;
+        background-color: purple
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    .sized.biggest {
+        display: block;
+        background-color: black;
+        color: white;
+    }
+}

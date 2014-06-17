@@ -1,0 +1,90 @@
+<script src="./sized.js"></script>
+<style>
+body {
+    background-color: grey;
+}
+</style>
+<link rel="stylesheet" href="./sized.css" />
+
+<main id="main">
+  <script>
+  console.log('main loading', window.inner, window.outer);
+  </script>
+  <div id="auth-button"></div>
+  <div id="auth-log"></div>
+  <div id="wall"></div>
+  sized: below will change according to media queries
+  <h1 class="sized biggest">I AM Biggest</h1>
+  <h2 class="sized huge">I AM huge</h2>
+  <h3 class="sized large">I AM LARGE</h3>
+  <h4 class="sized medium">I AM Medium</h4>
+  <p class="sized small">I AM small</p>
+  <p class="sized tiny">I AM tiny</p>
+</main>
+
+<div id="host" style="width: 50%"></div>
+
+<script>
+console.log('inside looking out', window.outer);
+window.inner = true;
+(function () {
+var main = document.getElementById('main');
+var host = document.getElementById('host');
+var container = document.createElement('iframe');
+
+host.appendChild(container);
+
+var app = container.contentWindow.document;
+
+function cloneStylesheets(source, dest) {
+    // copy stylesheets from out here
+    var stylesheets = [].slice.call(source.querySelectorAll('link[rel="stylesheet"]'));
+    stylesheets.forEach(function (s) {
+        dest.appendChild(s.cloneNode(true));
+    });    
+}
+
+
+setTimeout(function () {
+    cloneStylesheets(document, app.body);
+    // add the clone!
+    app.body.appendChild(main.cloneNode(true));
+
+}, 1)
+
+// make resizable
+container.style.width = '100%';
+container.style.border = '0';
+container.style.backgroundColor = 'white';
+container.style.resize = 'both';
+container.style.overflow = 'auto';
+}());
+</script>
+
+<!-- LF -->
+<script src="http://cdn.livefyre.com/Livefyre.js"></script>
+<script>
+// Livefyre.require(['auth-contrib#0.0.0-pre'], function (authContrib) {
+//     var auth = Livefyre.auth;
+//     auth.delegate(auth.createDelegate('http://livefyre.com'));
+//     var authLog = authContrib.createLog(auth, document.getElementById('auth-log'));
+//     authContrib.createButton(auth, document.getElementById('auth-button'), authLog);
+// });
+
+// Livefyre.require([
+//     'streamhub-sdk#2',
+//     'streamhub-wall#3'],
+// function (SDK, LiveMediaWall) {
+//     var collection = new (SDK.Collection)({
+//         network: 'client-solutions.fyre.co',
+//           siteId: 333682,
+//           articleId: 'answers-rss'
+//     });
+    
+//     var wall = window.wall = new LiveMediaWall({
+//         el: document.getElementById("wall"),
+//       collection: collection
+//     });
+  
+// });
+</script>
